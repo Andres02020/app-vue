@@ -111,7 +111,7 @@ const handleLogout = () => {
           <button @click="handleLogout" class="btn btn-outline-gold btn-sm px-3 rounded-0 tracking-wider">Cerrar Portal</button>
         </div>
         <div class="card-body p-4 p-sm-5 text-center">
-          <h3 class="text-white fw-bold mb-1">¡Bienvenido, Lic. Félix Maldonado!</h3>
+          <h3 class="text-white fw-bold mb-1">¡Bienvenido, Andres Perez!</h3>
           <p class="text-gold small tracking-widest mb-4">CONTROL DE ARTEFACTOS EN TIEMPO REAL</p>
           
           <div class="nordic-divider my-3"></div>
