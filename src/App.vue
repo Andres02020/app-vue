@@ -17,10 +17,41 @@ const password = ref('');
 const errorMessage = ref('');
 
 // 2. LA COLECCIÓN (Arreglo Fuertemente Tipado bajo la Interface)
+
+interface Producto {
+  id: number;
+  nombre: string;
+  precio: number;
+  stock: number;
+  categoria: string;
+  imagen: string;
+}
+
 const listaProductos = ref<Producto[]>([
-  { id: 101, nombre: "Teclado Mecánico RGB", precio: 250, stock: 12, categoria: "Accesorios" },
-  { id: 102, nombre: "Mouse Óptico Inalámbrico", precio: 110, stock: 20, categoria: "Accesorios" },
-  { id: 103, nombre: "Monitor Gamer 24' 144Hz", precio: 1450, stock: 5, categoria: "Pantallas" }
+  { 
+    id: 101, 
+    nombre: "Teclado Mecánico RGB", 
+    precio: 250, 
+    stock: 12, 
+    categoria: "Accesorios",
+    imagen: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?q=80&w=150&auto=format&fit=crop"
+  },
+  { 
+    id: 102, 
+    nombre: "Mouse Óptico Inalámbrico", 
+    precio: 110, 
+    stock: 20, 
+    categoria: "Accesorios",
+    imagen: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=150&auto=format&fit=crop"
+  },
+  { 
+    id: 103, 
+    nombre: "Monitor Gamer 24' 144Hz", 
+    precio: 1450, 
+    stock: 5, 
+    categoria: "Pantallas",
+    imagen: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=150&auto=format&fit=crop"
+  }
 ]);
 
 // Función de control de acceso
@@ -40,7 +71,7 @@ const handleLogout = () => {
 };
 </script>
 
-  <template>
+<template>
   <div class="min-vh-100 min-vw-100 position-fixed top-0 start-0 m-0 p-0 d-flex align-items-center justify-content-center px-3 visual-wrapper" 
        style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop'); background-size: cover; background-position: center; font-family: 'Cinzel', 'Segoe UI', serif; z-index: 0;">
     <div class="position-absolute top-0 start-0 w-100 h-100 nordic-overlay"></div>
@@ -53,13 +84,14 @@ const handleLogout = () => {
           <p class="small text-gold tracking-wider mb-0">FORJA DE ACCESORIOS & RUNAS</p>
           <div class="nordic-divider my-3"></div>
         </div>
-<div class="text-center my-3">
-  <img 
-    src="./assets/nordico123.png" 
-    alt="Logo Forja Vikinga" 
-    style="max-width: 140px; height: auto; filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.6));"
-  />
-</div>
+        
+        <div class="text-center my-3">
+          <img 
+            src="./assets/nordico123.png" 
+            alt="Logo Forja Vikinga" 
+            style="max-width: 140px; height: auto; filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.6));"
+          />
+        </div>
 
         <div class="card-body p-4 p-sm-5 pt-0">
           <form @submit.prevent="handleLogin">
@@ -106,29 +138,42 @@ const handleLogout = () => {
 
     <div v-else class="w-100 position-relative" style="max-width: 650px; z-index: 2;">
       <div class="card border-0 shadow-lg text-white god-card">
+        
         <div class="card-header border-bottom-gold bg-transparent d-flex justify-content-between align-items-center py-4 px-4">
           <h4 class="mb-0 fw-bold tracking-wide text-gold"><i class="bi bi-archive-fill me-2"></i> Inventario de la Forja</h4>
           <button @click="handleLogout" class="btn btn-outline-gold btn-sm px-3 rounded-0 tracking-wider">Cerrar Portal</button>
         </div>
+        
         <div class="card-body p-4 p-sm-5 text-center">
-          <h3 class="text-white fw-bold mb-1">¡Bienvenido, Andres Perez!</h3>
+          <h3 class="text-white fw-bold mb-1">¡Bienvenido, Lic. Maldonado!</h3>
           <p class="text-gold small tracking-widest mb-4">CONTROL DE ARTEFACTOS EN TIEMPO REAL</p>
           
           <div class="nordic-divider my-3"></div>
           
           <ul class="list-group list-group-flush text-start bg-transparent">
             <li v-for="p in listaProductos" :key="p.id" class="list-group-item d-flex justify-content-between align-items-center py-3 bg-transparent text-white border-bottom-dark">
-              <div>
-                <span class="fw-bold tracking-wide h6 text-white mb-1 d-block">{{ p.nombre }}</span>
-                <span class="badge bg-gold text-dark me-2 small px-2 py-1 rounded-0 fw-bold">{{ p.categoria || 'Gamer' }}</span>
-                <small class="text-white-50">ID Místico: {{ p.id }}</small>
+              
+              <div class="d-flex align-items-center">
+                <img 
+                  :src="p.imagen" 
+                  :alt="p.nombre" 
+                  class="rounded me-3"
+                  style="width: 55px; height: 55px; object-fit: cover; border: 1px solid #ffc107; filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.3));"
+                />
+                <div>
+                  <span class="fw-bold tracking-wide h6 text-white mb-1 d-block">{{ p.nombre }}</span>
+                  <span class="badge bg-gold text-dark me-2 small px-2 py-1 rounded-0 fw-bold">{{ p.categoria || 'Gamer' }}</span>
+                  <small class="text-white-50">ID Místico: {{ p.id }}</small>
+                </div>
               </div>
+              
               <span class="badge border border-gold text-gold bg-dark px-3 py-2 rounded-0 fs-6 fw-bold">
                 Bs. {{ p.precio }} | {{ p.stock }} pzas.
               </span>
             </li>
           </ul>
         </div>
+        
       </div>
     </div>
 
