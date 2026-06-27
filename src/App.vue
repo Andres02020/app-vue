@@ -53,6 +53,13 @@ const handleLogout = () => {
           <p class="small text-gold tracking-wider mb-0">FORJA DE ACCESORIOS & RUNAS</p>
           <div class="nordic-divider my-3"></div>
         </div>
+<div class="text-center my-3">
+  <img 
+    src="./assets/nordico123.png" 
+    alt="Logo Forja Vikinga" 
+    style="max-width: 140px; height: auto; filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.6));"
+  />
+</div>
 
         <div class="card-body p-4 p-sm-5 pt-0">
           <form @submit.prevent="handleLogin">
