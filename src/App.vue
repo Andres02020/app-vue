@@ -71,7 +71,7 @@ const handleLogout = () => {
                 <input v-model="username" 
                        type="text" 
                        class="form-control bg-transparent text-white border-0 custom-nordic-input" 
-                       placeholder="Ej: felix" 
+                       placeholder="Ej: andres" 
                        required />
               </div>
             </div>
