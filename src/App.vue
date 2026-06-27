@@ -25,7 +25,7 @@ const listaProductos = ref<Producto[]>([
 
 // Función de control de acceso
 const handleLogin = () => {
-  if (username.value === 'felix' && password.value === '1234') {
+  if (username.value === 'andres' && password.value === '1234') {
     isLoggedIn.value = true;
     errorMessage.value = '';
   } else {
