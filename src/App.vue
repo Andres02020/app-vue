@@ -150,28 +150,29 @@ const handleLogout = () => {
           
           <div class="nordic-divider my-3"></div>
           
-          <ul class="list-group list-group-flush text-start bg-transparent">
-            <li v-for="p in listaProductos" :key="p.id" class="list-group-item d-flex justify-content-between align-items-center py-3 bg-transparent text-white border-bottom-dark">
-              
-              <div class="d-flex align-items-center">
-                <img 
-                  :src="p.imagen" 
-                  :alt="p.nombre" 
-                  class="rounded me-3"
-                  style="width: 55px; height: 55px; object-fit: cover; border: 1px solid #ffc107; filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.3));"
-                />
-                <div>
-                  <span class="fw-bold tracking-wide h6 text-white mb-1 d-block">{{ p.nombre }}</span>
-                  <span class="badge bg-gold text-dark me-2 small px-2 py-1 rounded-0 fw-bold">{{ p.categoria || 'Gamer' }}</span>
-                  <small class="text-white-50">ID Místico: {{ p.id }}</small>
-                </div>
-              </div>
-              
-              <span class="badge border border-gold text-gold bg-dark px-3 py-2 rounded-0 fs-6 fw-bold">
-                Bs. {{ p.precio }} | {{ p.stock }} pzas.
-              </span>
-            </li>
-          </ul>
+         <ul class="list-group list-group-flush text-start bg-transparent">
+  <li v-for="p in listaProductos" :key="p.id" class="list-group-item d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 py-3 bg-transparent text-white border-bottom-dark">
+    
+    <div class="d-flex flex-column flex-sm-row align-items-center text-center text-sm-start w-100">
+      <img 
+        :src="p.imagen" 
+        :alt="p.nombre" 
+        class="rounded mb-2 mb-sm-0 me-0 mt-sm-0 me-sm-3"
+        style="width: 60px; height: 60px; object-fit: cover; border: 1px solid #ffc107; filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.3));"
+      />
+      <div>
+        <span class="fw-bold tracking-wide h6 text-white mb-1 d-block">{{ p.nombre }}</span>
+        <span class="badge bg-gold text-dark me-2 small px-2 py-1 rounded-0 fw-bold">{{ p.categoria || 'Gamer' }}</span>
+        <small class="text-white-50 d-block d-sm-inline mt-1 mt-sm-0">ID Místico: {{ p.id }}</small>
+      </div>
+    </div>
+    
+    <span class="badge border border-gold text-gold bg-dark px-3 py-2 rounded-0 fs-6 fw-bold w-100 w-sm-auto text-center">
+      Bs. {{ p.precio }} | {{ p.stock }} pzas.
+    </span>
+
+  </li>
+</ul>
         </div>
         
       </div>
